@@ -1,0 +1,17 @@
+---
+# tasks file for php
+  - name: install php-fpm
+    apt:
+      name: php-fpm
+      state: present
+
+  - name: Replace a listen setting in www.conf path in sites-avalaible
+    ansible.builtin.lineinfile:
+      path: "/etc/php/8.1/fpm/pool.d/www.conf"
+      search_string: 'listen = /run/php/php8.1-fpm.sock'
+      line: listen = 127.0.0.1:9000;
+      owner: root
+      group: root
+      mode: '0644'
+    notify:
+      restart php-fpm

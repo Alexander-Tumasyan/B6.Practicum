@@ -1,0 +1,13 @@
+---
+# tasks file for users
+- name: Create user user4
+  user:
+    name: user4
+    shell: /bin/bash
+    groups: sudo
+    append: yes
+
+- name: Added authorized key from id_rsa.pub
+  authorized_key:
+    user: user4
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

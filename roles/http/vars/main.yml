@@ -1,0 +1,4 @@
+---
+# vars file for http
+nginx_config_template_path: /home/alex/Ansible/playbooks/practicum1/tasks/roles/http/templates/default.conf.j2
+nginx_config_path: /etc/nginx/sites-available/default

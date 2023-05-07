@@ -1,0 +1,14 @@
+---
+# tasks file for http
+- name: install nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: edit default.conf to use php-fpm
+  template:
+    src: "{{ nginx_config_template_path }}"
+    dest: "{{ nginx_config_path }}"
+    remote_src: yes
+  notify:
+    restart nginx

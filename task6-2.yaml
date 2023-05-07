@@ -1,0 +1,8 @@
+---
+- hosts: server2
+  name: Run php and users
+  gather_facts: no
+  become: yes
+  roles:
+   - php
+   - users

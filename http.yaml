@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  name: Run http
+  gather_facts: no
+  become: yes
+  roles:
+   - http

@@ -1,0 +1,8 @@
+---
+- hosts: server1
+  name: Run http and users
+  gather_facts: no
+  become: yes
+  roles:
+   - http
+   - users
